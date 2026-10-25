@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+
+<!-- launch.sh and doctor.sh grep the served body for this marker to prove the port serves
+     THIS app and not a stray server, which leaves <title> free to change. -->
+<meta name="app" content="todo-app">
+
+<title>할 일 목록</title>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- The skeleton below is the only static DOM. views.js owns everything inside #view,
+     #notice-host and #editor, and app.js owns the single listener pair on #app. -->
+<div id="app" class="wrap">
+  <header class="top">
+    <h1 data-title></h1>
+    <button type="button" class="primary" data-create></button>
+  </header>
+
+  <div id="notice-host"></div>
+
+  <!-- data-view="list" keeps the handle the feature files already use. Nothing inside
+       reacts to a bare click, so clicking it is a no-op. -->
+  <main id="view" data-view="list"></main>
+
+  <dialog id="editor">
+    <form method="dialog"></form>
+  </dialog>
+</div>
+
+<!-- One module script. ES modules need no build step over http and give real file
+     boundaries: a binding that is not exported cannot be imported. -->
+<script type="module" src="app.js"></script>
+</body>
+</html>
