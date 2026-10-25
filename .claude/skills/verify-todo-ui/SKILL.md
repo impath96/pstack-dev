@@ -106,6 +106,10 @@ editor dialog uses `[data-field="<name>"]`, `[data-submit]` and `[data-cancel]`.
 Do not select by text position or nth-child. Items sort by priority, then due date, then
 id, so positions move.
 
+To assert the editor closed, wait for `page.waitForSelector('#editor', { state: 'hidden' })`.
+A closed `<dialog>` is hidden rather than removed, so the default visible-state wait on
+`#editor:not([open])` times out instead of passing.
+
 `window.store` is a frozen read-only facade with `todos`, `byStatus`, `canMove` and
 `allowedTargets`. It has no write method, so a journey cannot set state around the UI. Use
 `canMove` to prove a forbidden transition is refused: the UI never renders an illegal
