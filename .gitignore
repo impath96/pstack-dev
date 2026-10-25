@@ -1,0 +1,9 @@
+node_modules/
+
+# Verification evidence. Each run writes screenshots and a summary under
+# verification/<RUN_ID>/. Keep them on disk, out of history.
+verification/
+
+# The throwaway layout prototype that chose the list view. docs/design.md records
+# what it decided, which is the part worth keeping.
+.scratch/
