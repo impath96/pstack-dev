@@ -13,7 +13,7 @@ dialog has to stay reachable and submittable at the same width.
 
 ## How to get to it (user POV)
 
-- Open the app on a phone, or narrow the browser window below 560px.
+- Open the app on a phone, or narrow the browser window below 640px.
 
 ## Driving it with drive.mjs
 
@@ -48,8 +48,9 @@ Preconditions:
 - A row can avoid horizontal overflow by collapsing its title to zero width and ellipsing
   it away. The prototype's list did exactly that before the two-line rule was added. An
   overflow check alone is not proof. Always pair it with the title width check.
-- The breakpoint is 560px, not 414px. A check run at 500px exercises the narrow rules too,
-  so do not treat 560px to 600px as desktop.
+- The breakpoint is 640px, not 414px, and it is set in `src/styles.css`. A check run at
+  500px exercises the narrow rules too, so do not treat 560px to 640px as desktop. If the
+  media query moves, this line is the copy that goes stale, so change both.
 - `page.setViewportSize` does not re-run the layout for content already measured in a
   journey. Take the measurements after the resize, not before.
 - Full-page screenshots at 414px are tall. Compare the per-item height from the
